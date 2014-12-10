@@ -15,6 +15,7 @@ int *array;
 heap();
 void createarray(int );
 void insert(int );
+void printheap(int);
 };
 
 heap :: heap()
@@ -65,8 +66,24 @@ if(insertionpoint<size)
 insertionpoint++;
 }
 }
+return ;
 }
 
+void heap :: printheap(int index = 0)
+{
+if(index!=0 && index<=insertionpoint)
+{
+cout<<*(array+index);
+}
+else if(index==0)
+{
+for(int i=0;i<insertionpoint;i++)
+{
+cout<<*(array+i)<<" ";
+}
+return ;
+}
+}
 
 // function to check that this library is accessible or not
 void check()
