@@ -1,5 +1,7 @@
 #include <cstdlib>
 #include <iostream>
+#include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -122,7 +124,7 @@ for(int i=1;i<array_size+1;i++)
 {
 temp[i] = *(array+i-1);
 }
-for(int i=(array_size/2);i>=1;i--)
+for(int i=(array_size/2)+1;i>=1;i--)
 {
 min_heapify(temp,array_size,i);
 }
@@ -131,4 +133,43 @@ for(int i=1;i<array_size+1;i++)
 *(array+i-1) = temp[i];
 }
 return true;
+}
+
+// Print heap 
+void print_heap(int *array,int array_size)
+{
+int level = 0;
+while(array_size>pow(2,level))
+{
+level++;
+}
+int counter=0,before=0,after=0;
+for(int i=0;i<level;i++)
+{
+after =  (before -pow(2,(level-i-1))*3 ) * 2-3;
+before = pow(2,(level-i-1))*3;
+//after = before;
+for(int j=0;j<pow(2,i);j++)
+{
+int k=0;
+if(j==0)
+{
+while(k<before)
+{
+cout<<" ";
+k++;
+}
+}
+cout<<setw(3)<<*(array+counter);
+counter++;
+k=0;
+while(k<after)
+{
+cout<<" ";
+k++;
+}
+}
+cout<<endl;
+}
+return ; 
 }
