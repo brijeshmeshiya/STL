@@ -42,6 +42,7 @@ return ;
 return ;
 }
 
+// Insert item into the heap
 void heap :: insert(int element)
 {
 if(insertionpoint<size)
@@ -58,6 +59,7 @@ for(int i=0;i<size;i++)
 {
 *(temp+i) = *(array+i);
 }
+free(array);
 array = temp;
 size=size*2;
 if(insertionpoint<size)
@@ -69,6 +71,7 @@ insertionpoint++;
 return ;
 }
 
+// print the heap with specified element index andd if not specified then print complete heap
 void heap :: printheap(int index = 0)
 {
 if(index!=0 && index<=insertionpoint)
