@@ -114,3 +114,21 @@ return true;
 }
 }
 
+// convert array (index = 0) to min heap (index = 0)
+bool min_heap(int *array,int array_size)
+{
+int temp[array_size+1];
+for(int i=1;i<array_size+1;i++)
+{
+temp[i] = *(array+i-1);
+}
+for(int i=(array_size/2);i>=1;i--)
+{
+min_heapify(temp,array_size,i);
+}
+for(int i=1;i<array_size+1;i++)
+{
+*(array+i-1) = temp[i];
+}
+return true;
+}
