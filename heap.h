@@ -43,8 +43,11 @@ return NULL;
 
 void heap :: insert(int element)
 {
+if(insertionpoint<size)
+{
 *(array+insertionpoint) = element;
 insertionpoint++;
+}
 }
 
 
