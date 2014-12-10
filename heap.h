@@ -21,6 +21,7 @@ void min_insert(int);
 void max_insert(int);
 void print_min();
 void print_max();
+void min_heapify(int);
 };
 
 heap :: heap()
@@ -220,6 +221,36 @@ void heap :: print_max()
 if(insertionpoint>1)
 {
 cout<<*(array)<<endl;
+}
+}
+
+// function to convert index to minimum then its child
+void heap :: min_heapify(int index)
+{
+if(index<insertionpoint)
+{
+int left,right,side = 0;	// side to take care about swap left or right
+left = index*2+1;
+right = left+1;
+int minimum = *(array+index);
+if(left<insertionpoint && minimum>*(array+left))
+{
+side = 1;
+minimum = *(array+left);
+}
+if(right<insertionpoint && minimum > *(array+right))
+{
+side = 2;
+minimum = *(array+right);
+}
+if(side!=0)
+{
+int temp;
+temp = *(array+index*2+side);
+*(array+index*2+side) = *(array+index);
+*(array+index) = temp;
+min_heapify(index*2+side);
+}
 }
 }
 
