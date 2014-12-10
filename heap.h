@@ -5,13 +5,23 @@
 
 using namespace std;
 
+class heap
+{
+public :
+heap();
+};
+
+heap :: heap()
+{
+cout<<"object is initialized"<<endl;
+}
+
 // function to check that this library is accessible or not
 void check()
 {
 cout<<"heep.h = OK"<<endl;
 return ;
 }
-
 
 // convert passed index to maximum and its ancestor
 bool max_heapify(int *array,int array_size,int element_index)	// Element with starting index = 1
