@@ -20,6 +20,7 @@ bool remove(int);
 void min_insert(int);
 void max_insert(int);
 void print_min();
+void print_max();
 };
 
 heap :: heap()
@@ -213,6 +214,14 @@ cout<<*(array)<<endl;
 return ;
 }
 
+//function to print maximum element from max heap
+void heap :: print_max()
+{
+if(insertionpoint>1)
+{
+cout<<*(array)<<endl;
+}
+}
 
 // function to check that this library is accessible or not
 void check()
