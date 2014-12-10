@@ -82,3 +82,35 @@ for(int i=1;i<size+1;i++)       // Copying array and converting back to index = 
 return true;
 }
 
+bool min_heapify(int *array,int array_size,int element_index)	// min_heapify function with index = 1
+{
+if(element_index>array_size)
+{
+return false;
+}
+else
+{
+int minimum = *(array+element_index);
+int side = 0;
+if(element_index*2<=array_size && *(array+element_index*2)<minimum)
+{
+side=1;
+minimum = *(array+element_index*2);
+}
+if(element_index*2+1<=array_size && *(array+element_index*2+1)<minimum)
+{
+side=2;
+minimum = *(array+element_index*2+1);
+}
+if(side!=0)
+{
+int temp;
+temp = *(array+element_index*2+side-1);
+*(array+element_index*2+side-1) = *(array+element_index);
+*(array+element_index) = temp;
+min_heapify(array,array_size,element_index*2+side-1);
+}
+return true;
+}
+}
+
