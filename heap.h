@@ -16,6 +16,7 @@ heap();
 void createarray(int );
 void insert(int );
 void printheap(int);
+bool remove(int);
 };
 
 heap :: heap()
@@ -84,9 +85,32 @@ for(int i=0;i<insertionpoint;i++)
 {
 cout<<*(array+i)<<" ";
 }
+cout<<endl;
 return ;
 }
 }
+
+// function to remove specified key from heap : complexity = O(n)
+bool heap :: remove(int key)
+{
+int i;
+for(i=0;i<=insertionpoint;i++)
+{
+if(*(array+i) == key)
+	break;
+}
+if(i<insertionpoint)
+{
+for(int j=i;j<insertionpoint-1;j++)
+{
+*(array+j) = *(array+j+1);
+}
+insertionpoint--;
+return true;
+}
+return false;
+}
+
 
 // function to check that this library is accessible or not
 void check()
