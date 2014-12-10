@@ -43,3 +43,22 @@ max_heapify(array,array_size,element_index*2+side-1);
 return true;
 }
 }
+
+//convert normal array to max heap with starting index = 0
+bool max_heap(int *array,int size)
+{
+int temp[size+1];
+for(int i=1;i<size+1;i++)	// converting to index = 1 
+{
+temp[i]=*(array+i-1);
+}
+for(int i=(size/2)+1;i>=1;i--)	// Converting to max heap
+{
+max_heapify(temp,size,i);
+}
+for(int i=1;i<size+1;i++)	// Copying array and converting back to index = 0
+{
+*(array+i-1)=temp[i];
+}
+return true;
+}
