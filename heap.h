@@ -160,7 +160,7 @@ cout<<" ";
 k++;
 }
 }
-if(counter>array_size)
+if(counter>=array_size)
 	break;
 cout<<setw(3)<<*(array+counter);
 counter++;
