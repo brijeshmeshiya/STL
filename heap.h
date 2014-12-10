@@ -8,13 +8,33 @@ using namespace std;
 class heap
 {
 public :
+int size;
+int *array;
 heap();
+int * createarray();
 };
 
 heap :: heap()
 {
-cout<<"object is initialized"<<endl;
+array = NULL;
 }
+
+int * heap :: createarray()
+{
+if(size>0)
+{
+free(array);
+array = (int  *) malloc(size*sizeof(int));
+for(int i=0;i<size;i++)
+{
+*(array+i)=0;
+}
+return array;
+}
+return NULL;
+}
+
+
 
 // function to check that this library is accessible or not
 void check()
