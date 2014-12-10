@@ -13,7 +13,7 @@ int size;
 public :
 int *array;
 heap();
-int * createarray(int );
+void createarray(int );
 void insert(int );
 };
 
@@ -24,7 +24,7 @@ insertionpoint=0;
 size=0;
 }
 
-int * heap :: createarray(int passed_size)
+void heap :: createarray(int passed_size)
 {
 size = passed_size;
 if(size>0)
@@ -36,9 +36,9 @@ for(int i=0;i<size;i++)
 {
 *(array+i)=0;
 }
-return array;
+return ;
 }
-return NULL;
+return ;
 }
 
 void heap :: insert(int element)
@@ -47,6 +47,23 @@ if(insertionpoint<size)
 {
 *(array+insertionpoint) = element;
 insertionpoint++;
+}
+else
+{
+// Use array doubling method to allocate more space and then copying previous array into new one
+int *temp;
+temp = (int *) malloc (size*2*sizeof(int));
+for(int i=0;i<size;i++)
+{
+*(temp+i) = *(array+i);
+}
+array = temp;
+size=size*2;
+if(insertionpoint<size)
+{
+*(array+insertionpoint) = element;
+insertionpoint++;
+}
 }
 }
 
