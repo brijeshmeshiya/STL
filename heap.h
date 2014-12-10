@@ -18,6 +18,7 @@ void insert(int );
 void printheap(int);
 bool remove(int);
 void min_insert(int);
+void max_insert(int);
 };
 
 heap :: heap()
@@ -154,6 +155,50 @@ else
 track = track / 2 ;
 }
 //printheap();
+}
+}
+
+// function to insert element into existing max heap
+void heap :: max_insert(int element)
+{
+insert(element);
+int track,parent;
+parent = insertionpoint-1;
+track = parent;
+if(track%2==0)
+{
+track = track/2;
+track = track-1;
+}
+else
+{
+track = track/2;
+}
+while(track >= 0)
+{
+if(*(array+parent) > *(array+track))
+{
+int temp;
+temp = *(array + parent);
+*(array+parent)  = *(array+track);
+*(array+track) = temp;
+}
+else
+{
+break;
+}
+if(track==0)
+	break;
+parent = track;
+if(track%2==0)
+{
+track = track / 2;
+track = track -1;
+}
+else
+{
+track = track / 2;
+}
 }
 }
 
