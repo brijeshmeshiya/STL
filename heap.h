@@ -24,6 +24,7 @@ void print_max();
 void min_heapify(int);
 void max_heapify(int);
 void min_remove();
+void max_remove();
 };
 
 heap :: heap()
@@ -296,6 +297,18 @@ if(insertionpoint>0)
 min_heapify(0);
 }
 } 
+
+// remove maximum element from max heap
+void heap :: max_remove()
+{
+insertionpoint--;
+if(insertionpoint>0)
+{
+*array = *(array+insertionpoint);
+max_heapify(0);
+}
+}
+
 
 // function to check that this library is accessible or not
 void check()
