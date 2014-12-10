@@ -26,6 +26,7 @@ void max_heapify(int);
 void min_remove();
 void max_remove();
 void min_heap();
+void max_heap();
 };
 
 heap :: heap()
@@ -319,6 +320,17 @@ min_heapify(i);
 }
 return ;
 }
+
+// convert heap to min heap
+void heap :: max_heap()
+{
+for(int i=(insertionpoint/2)-1;i>=0;i--)
+{
+max_heapify(i);
+}
+return ;
+}
+
 
 // function to check that this library is accessible or not
 void check()
