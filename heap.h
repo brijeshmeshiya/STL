@@ -7,23 +7,30 @@ using namespace std;
 
 class heap
 {
-public :
+private:
+int insertionpoint;
 int size;
+public :
 int *array;
 heap();
-int * createarray();
+int * createarray(int );
+void insert(int );
 };
 
 heap :: heap()
 {
 array = NULL;
+insertionpoint=0;
+size=0;
 }
 
-int * heap :: createarray()
+int * heap :: createarray(int passed_size)
 {
+size = passed_size;
 if(size>0)
 {
 free(array);
+insertionpoint=0;
 array = (int  *) malloc(size*sizeof(int));
 for(int i=0;i<size;i++)
 {
@@ -34,6 +41,11 @@ return array;
 return NULL;
 }
 
+void heap :: insert(int element)
+{
+*(array+insertionpoint) = element;
+insertionpoint++;
+}
 
 
 // function to check that this library is accessible or not
