@@ -175,3 +175,31 @@ cout<<endl;
 }
 return ; 
 }
+
+// sort using max_heap property
+
+void sort_heap_max(int *array,int array_size)
+{
+if(array_size>0)
+{
+max_heap(array,array_size);
+int temp_size = array_size;
+int temp[array_size+1];
+for(int i=0;i<array_size;i++)
+{
+temp[i+1] = *(array+i);
+}
+for(int j=array_size;j>=2;j--)
+{
+int tmp = temp[j];
+temp[j] = temp[1];
+temp[1] = tmp;
+max_heapify(temp,j-1,1);
+}
+for(int i=0;i<array_size;i++)
+{
+*(array+i) = temp[i+1];
+}
+}
+return ;
+}
