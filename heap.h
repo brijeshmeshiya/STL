@@ -22,6 +22,7 @@ void max_insert(int);
 void print_min();
 void print_max();
 void min_heapify(int);
+void max_heapify(int);
 };
 
 heap :: heap()
@@ -253,6 +254,37 @@ min_heapify(index*2+side);
 }
 }
 }
+
+// function to convert index to maximum then its child
+void heap :: max_heapify(int index)
+{
+if(index<insertionpoint)
+{
+int left,right,side = 0;        // side to take care about swap left or right
+left = index*2+1;
+right = left+1;
+int maximum = *(array+index);
+if(left<insertionpoint && maximum<*(array+left))
+{
+side = 1;
+maximum = *(array+left);
+}
+if(right<insertionpoint && maximum < *(array+right))
+{
+side = 2;
+maximum = *(array+right);
+}
+if(side!=0)
+{
+int temp;
+temp = *(array+index*2+side);
+*(array+index*2+side) = *(array+index);
+*(array+index) = temp;
+max_heapify(index*2+side);
+}
+}
+}
+
 
 // function to check that this library is accessible or not
 void check()
