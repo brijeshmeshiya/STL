@@ -17,6 +17,7 @@ void createarray(int );
 void insert(int );
 void printheap(int);
 bool remove(int);
+void min_insert(int);
 };
 
 heap :: heap()
@@ -111,6 +112,50 @@ return true;
 return false;
 }
 
+void heap :: min_insert(int element)
+{
+insert(element);
+int track = (insertionpoint-1);
+int parent = insertionpoint -1 ;
+//cout<<"Insertion point = "<<insertionpoint<<endl;
+if(track%2==0)
+{
+track = track /2 ;
+track=track-1;
+}
+else
+{
+track = track / 2 ;
+}
+while(track>=0)
+{
+//cout<<"Parent : "<<parent<<"     Track"<<track<<endl;
+if(*(array+parent) < *(array+track))
+{
+//cout<<"Executed"<<endl;
+int temp = *(array+parent);
+*(array+parent) = *(array+track);
+*(array+track) = temp;
+}
+else
+{
+break;
+}
+if(track ==0 )
+	break;
+parent = track ;
+if(track%2==0)
+{
+track = track /2 ;
+track=track-1;
+}
+else
+{
+track = track / 2 ;
+}
+//printheap();
+}
+}
 
 // function to check that this library is accessible or not
 void check()
