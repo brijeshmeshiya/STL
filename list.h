@@ -60,3 +60,26 @@ h=h->next;
 return ;
 }
 
+/* This Function Push New Node At End In Existing Link List
+   Argument : 1) h = (head of linked list)  
+    	      2) d = (data - some integer value) 
+*/
+void push_back(struct node **h,int d)
+{
+struct node *t = (struct node *)malloc(sizeof(struct node));
+t->data=d;
+t->next=NULL;
+if(*h==NULL)
+{
+*h=t;
+}
+else
+{
+struct node *tail=NULL;
+find_tail(*h,&tail);
+tail->next=t;
+}
+return;
+}
+
+
