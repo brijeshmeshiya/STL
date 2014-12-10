@@ -19,6 +19,7 @@ void printheap(int);
 bool remove(int);
 void min_insert(int);
 void max_insert(int);
+void print_min();
 };
 
 heap :: heap()
@@ -201,6 +202,17 @@ track = track / 2;
 }
 }
 }
+
+//function to print minimum element from min heap
+void heap :: print_min()
+{
+if(insertionpoint>1)
+{
+cout<<*(array)<<endl;
+}
+return ;
+}
+
 
 // function to check that this library is accessible or not
 void check()
