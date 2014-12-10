@@ -23,6 +23,7 @@ void print_min();
 void print_max();
 void min_heapify(int);
 void max_heapify(int);
+void min_remove();
 };
 
 heap :: heap()
@@ -285,6 +286,16 @@ max_heapify(index*2+side);
 }
 }
 
+// remove minimum element from min heap
+void heap :: min_remove()
+{
+insertionpoint--;
+if(insertionpoint>0)
+{
+*array = *(array+insertionpoint);
+min_heapify(0);
+}
+} 
 
 // function to check that this library is accessible or not
 void check()
