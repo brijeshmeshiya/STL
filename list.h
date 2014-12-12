@@ -189,3 +189,49 @@ cout<<endl;
 return ;
 }
 
+/* This functions delete all duplicate node from linked list defined in argument
+   Argument : 1) h= (head of link list) - May Modifies head Pointer
+              2) d= (data to delete - some integer value)
+*/
+void remove_all(struct node **h,int d)
+{
+if(*h==NULL)
+{
+cout<<"Can't Delete Node From Empty Link List"<<endl;
+}
+else if((*h)->data==d)
+{
+struct node *t = *h;
+cout<<"Node Is deleted with data : "<<d<<" And Head Pointer is changed"<<endl;
+*h = (*h)->next;
+free(t);
+remove_all(h,d);
+}
+else
+{
+struct node *t= *h;
+while(t!=NULL && t->next!=NULL)
+{
+if(t->next->data==d)
+{
+cout<<"Node with data : "<<d<<" Is Deleted"<<endl;
+struct node *temp=t->next;
+t->next=temp->next;
+free(temp);
+}
+if(t!=NULL)
+{
+t=t->next;
+}
+}
+if(t!=NULL && t->next!=NULL && t->next->data==d)
+{
+cout<<"Node with data : "<<d<<" Is Deleted"<<endl;
+struct node *temp=t->next;
+t->next=temp->next;
+free(temp);
+}
+return ;
+}
+}
+
