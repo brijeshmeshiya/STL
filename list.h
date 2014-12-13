@@ -238,7 +238,7 @@ return ;
 /* This Function Deletes A Link List
    Argument : 1) h = (head pointer to link list)
 */
-void delete_ll(struct node **h)
+void delete_all(struct node **h)
 {
 if(*h==NULL)
 {
