@@ -235,3 +235,25 @@ return ;
 }
 }
 
+/* This Function Deletes A Link List
+   Argument : 1) h = (head pointer to link list)
+*/
+void delete_ll(struct node **h)
+{
+if(*h==NULL)
+{
+cout<<"Link List Is Already Empty"<<endl;
+}
+else
+{
+struct node *t;
+while(*h!=NULL)
+{
+t=*h;
+*h=(*h)->next;
+free(t);
+}
+return;
+}
+}
+
